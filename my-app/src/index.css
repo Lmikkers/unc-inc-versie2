@@ -16,6 +16,8 @@ body {
 
   --titleSize: 2.5rem;
   --regularTextSize: 1.25rem;
+
+  --transitionEase: .25s ease-in-out;
 }
 
 h1 {
@@ -54,7 +56,7 @@ section {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  padding: 1.25rem;
+  padding: 2rem 1.25rem;
 }
 section article {
   grid-row-start: 3;
@@ -69,6 +71,8 @@ section > div {
   align-items: center;
   flex-direction: column;
   gap: 2rem;
+  text-align: center;
+  align-self: baseline;
 }
 
 nav {
@@ -79,6 +83,7 @@ nav {
   grid-row-end: -1;
   max-width: 30rem;
   margin: 0 auto;
+  align-self: flex-end;
 }
 nav ul {
   display: flex;
@@ -97,10 +102,15 @@ nav ul li a {
   align-items: center;
   flex-direction: row;
   gap: .5rem;
+  transition: var(--transitionEase);
 }
-nav a:active, nav a.active {
+nav a:active, nav a.active,
+nav a:hover {
   background: var(--formColor);
   border-radius: 2rem;
+}
+nav img {
+  width: 1.5rem;
 }
 
 a.button, button {
@@ -116,7 +126,7 @@ a.button, button {
   cursor: pointer;
   font-size: var(--regularFont);
   font-weight: 500;
-  transition: .25s ease-in-out;
+  transition: var(--transitionEase);
 }
 a.button:hover, button:hover {
   background-color: white;
@@ -137,4 +147,10 @@ a.button:hover, button:hover {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .nav-text {
+      display: none;
+  }
 }
